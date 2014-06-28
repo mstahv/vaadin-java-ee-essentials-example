@@ -90,6 +90,8 @@ public class VaadinUI extends UI {
     public void entrySaved(PhoneBookEntry clone) {
         PhoneBookEntry value = entryList.getValue();
         try {
+        	// Copy the saved state from the clone to "attached entity"
+        	// In e.g. typical JPA app this step is not relevant
             BeanUtils.copyProperties(value, clone);
             service.save(value);
             entryList.setValue(null);
@@ -114,6 +116,7 @@ public class VaadinUI extends UI {
         } else {
             try {
                 // Example works with "attached entities", use clone for editing
+            	// In e.g. typical JPA app this step is not relevant
                 PhoneBookEntry clone = (PhoneBookEntry) BeanUtils.cloneBean(
                         entry);
                 form.setEntity(clone);
