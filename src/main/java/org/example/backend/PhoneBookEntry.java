@@ -1,6 +1,7 @@
 package org.example.backend;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -12,15 +13,17 @@ import javax.validation.constraints.Size;
 public class PhoneBookEntry implements Serializable, Cloneable {
 
     @NotNull
-    @Size(min=3,max = 40)
+    @Size(min = 3, max = 40, message = "name must be longer than 3 and less than 40 characters")
     private String name;
 
-    @Size(max = 25)
+    @Size(max = 25, message = "Only 25 characters allowed")
     private String number;
-    
-    @NotNull
-    @Pattern(regexp = ".+@.+\\.[a-z]+")
+
+    @NotNull(message = "Email is required")
+    @Pattern(regexp = ".+@.+\\.[a-z]+", message = "Must be valid email")
     private String email;
+
+    private Date birthDate;
 
     public PhoneBookEntry(String name, String number, String email) {
         this.name = name;
@@ -31,7 +34,7 @@ public class PhoneBookEntry implements Serializable, Cloneable {
     public PhoneBookEntry() {
         this("", "", "");
     }
-    
+
     public String getName() {
         return name;
     }
@@ -54,6 +57,14 @@ public class PhoneBookEntry implements Serializable, Cloneable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
 
 }
