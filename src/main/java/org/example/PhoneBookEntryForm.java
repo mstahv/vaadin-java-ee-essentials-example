@@ -9,6 +9,7 @@ import org.vaadin.maddon.layouts.MVerticalLayout;
 
 import com.vaadin.ui.Component;
 import com.vaadin.ui.DateField;
+import com.vaadin.ui.PopupDateField;
 import com.vaadin.ui.TextField;
 
 /**
@@ -23,7 +24,7 @@ public class PhoneBookEntryForm extends AbstractForm<PhoneBookEntry> {
     TextField name = new MTextField("Name");
     TextField number = new MTextField("Number");
     TextField email = new MTextField("Email");
-    DateField birthDate = new DateField(("Birth date"));
+    DateField birthDate = new PopupDateField("Birth date");
 
     public PhoneBookEntryForm() {
         setEagarValidation(true);

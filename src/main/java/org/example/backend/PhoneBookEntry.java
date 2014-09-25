@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
  */
 public class PhoneBookEntry implements Serializable, Cloneable {
 
-    @NotNull
+    @NotNull(message = "Name is required")
     @Size(min = 3, max = 40, message = "name must be longer than 3 and less than 40 characters")
     private String name;
 

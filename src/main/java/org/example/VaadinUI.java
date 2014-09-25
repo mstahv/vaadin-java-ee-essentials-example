@@ -72,7 +72,7 @@ public class VaadinUI extends UI {
                 new MVerticalLayout(
                         new Header("PhoneBook"),
                         new MHorizontalLayout(addNew, delete, filter),
-                        new HorizontalSplitPanel(entryList, form)
+                        new MHorizontalLayout(entryList, form)
                 )
         );
 
@@ -118,7 +118,9 @@ public class VaadinUI extends UI {
     private void editEntry(final PhoneBookEntry entry) {
         if (entry == null) {
             form.setVisible(false);
+            delete.setEnabled(false);
         } else {
+            delete.setEnabled(true);
             try {
                 // Example "DB" works with "attached entities", use a clone for 
                 // editing to make changes "buffered". Vaadin also has buffering
