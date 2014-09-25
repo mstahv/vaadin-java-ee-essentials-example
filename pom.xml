@@ -10,7 +10,7 @@
     <parent>
         <groupId>org.vaadin</groupId>
         <artifactId>vaadin-java-ee-essentials</artifactId>
-        <version>1.4</version>
+        <version>1.5</version>
     </parent>
 
     <!-- Optional: use Java 8 -->
