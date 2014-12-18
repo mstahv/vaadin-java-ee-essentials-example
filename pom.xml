@@ -23,7 +23,7 @@
         <dependency>
             <groupId>org.vaadin</groupId>
             <artifactId>vaadin-java-ee-essentials</artifactId>
-            <version>1.5</version>
+            <version>1.7</version>
             <type>pom</type>
         </dependency>
         <dependency>

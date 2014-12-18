@@ -27,7 +27,7 @@ public class PhoneBookEntryForm extends AbstractForm<PhoneBookEntry> {
     DateField birthDate = new PopupDateField("Birth date");
 
     public PhoneBookEntryForm() {
-        setEagarValidation(true);
+        setEagerValidation(true);
     }
 
     @Override
