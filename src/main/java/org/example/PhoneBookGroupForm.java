@@ -8,12 +8,8 @@ import org.vaadin.maddon.layouts.MMarginInfo;
 import org.vaadin.maddon.layouts.MVerticalLayout;
 
 import com.vaadin.ui.Component;
-import com.vaadin.ui.DateField;
-import com.vaadin.ui.PopupDateField;
 import com.vaadin.ui.TextField;
-import javax.inject.Inject;
-import org.example.backend.PhoneBookService;
-import org.vaadin.maddon.fields.MultiSelectTable;
+import org.example.backend.PhoneBookGroup;
 
 /**
  * This class introduces a Form to edit PhoneBookEntry pojos. It is a good habit
@@ -22,32 +18,19 @@ import org.vaadin.maddon.fields.MultiSelectTable;
  *
  * @author Matti Tahvonen <matti@vaadin.com>
  */
-public class PhoneBookEntryForm extends AbstractForm<PhoneBookEntry> {
+public class PhoneBookGroupForm extends AbstractForm<PhoneBookGroup> {
 
     TextField name = new MTextField("Name");
-    TextField number = new MTextField("Number");
-    TextField email = new MTextField("Email");
-    DateField birthDate = new PopupDateField("Birth date");
-    MultiSelectTable groups = new MultiSelectTable("Groups")
-            .withProperties("name");
 
-    @Inject
-    PhoneBookService service;
-
-    public PhoneBookEntryForm() {
+    public PhoneBookGroupForm() {
         setEagerValidation(true);
     }
 
     @Override
     protected Component createContent() {
-        groups.setOptions(service.getGroups());
         return new MVerticalLayout(
                 new MFormLayout(
-                        name,
-                        number,
-                        email,
-                        birthDate,
-                        groups
+                        name
                 ).withMargin(false),
                 getToolbar()
         ).withMargin(new MMarginInfo(false, true));

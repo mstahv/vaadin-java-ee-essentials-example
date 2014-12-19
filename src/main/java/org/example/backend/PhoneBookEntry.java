@@ -2,6 +2,8 @@ package org.example.backend;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -24,6 +26,8 @@ public class PhoneBookEntry implements Serializable, Cloneable {
     private String email;
 
     private Date birthDate;
+    
+    private Set<PhoneBookGroup> groups = new HashSet<>();
 
     public PhoneBookEntry(String name, String number, String email) {
         this.name = name;
@@ -67,4 +71,12 @@ public class PhoneBookEntry implements Serializable, Cloneable {
         this.birthDate = birthDate;
     }
 
+    public Set<PhoneBookGroup> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(Set<PhoneBookGroup> groups) {
+        this.groups = groups;
+    }
+    
 }
