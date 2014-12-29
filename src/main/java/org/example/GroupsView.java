@@ -6,6 +6,7 @@ import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.FontAwesome;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.CssLayout;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.TextField;
 import java.lang.reflect.InvocationTargetException;
 import java.util.logging.Level;
@@ -88,41 +89,22 @@ public class GroupsView extends CssLayout implements View {
             delete.setEnabled(false);
         } else {
             delete.setEnabled(true);
-            try {
-                // Example "DB" works with "attached entities", use a clone for 
-                // editing to make changes "buffered". Vaadin also has buffering
-                // on field level that you might find handy sometimes.
-                // In typical applications using e.g. JPA this step is not relevant
-                // as you will be working with a "detached entity"
-                PhoneBookGroup clone = (PhoneBookGroup) BeanUtils.cloneBean(
-                        entry);
-                form.setEntity(clone);
-                form.focusFirst();
-            } catch (IllegalAccessException | InstantiationException | InvocationTargetException | NoSuchMethodException ex) {
-                Logger.getLogger(VaadinUI.class.getName()).log(Level.SEVERE,
-                        null,
-                        ex);
-            }
+            form.setEntity(entry);
+            form.focusFirst();
         }
     }
 
-    public void entrySaved(PhoneBookGroup clone) {
-        PhoneBookGroup value = entryList.getValue();
+    public void entrySaved(PhoneBookGroup value) {
         try {
-            // Copy the saved state from the clone to "attached entity"
-            // In e.g. typical JPA app this step is not relevant as you'd be
-            // working with detached entities
-            BeanUtils.copyProperties(value, clone);
-            // "save" the modified entity with service call
             service.save(value);
-            // deselect the entity
-            entryList.setValue(null);
-            // refresh list
-            listEntries();
-        } catch (IllegalAccessException | InvocationTargetException ex) {
-            Logger.getLogger(VaadinUI.class.getName()).log(Level.SEVERE, null,
-                    ex);
+        } catch (Exception e) {
+            Notification.show("Saving entity failed due to " + e.
+                    getLocalizedMessage(), Notification.Type.WARNING_MESSAGE);
         }
+        // deselect the entity
+        entryList.setValue(null);
+        // refresh list
+        listEntries();
     }
 
     @Override

@@ -1,9 +1,13 @@
 package org.example.backend;
 
-import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -12,7 +16,12 @@ import javax.validation.constraints.Size;
  * A domain object example. In a real application this would probably be a JPA
  * entity or DTO.
  */
-public class PhoneBookEntry implements Serializable, Cloneable {
+@Entity
+@NamedQueries({
+    @NamedQuery(name = "Entry.byName", query = "SELECT e FROM PhoneBookEntry AS e WHERE E.name LIKE :filter")
+})
+
+public class PhoneBookEntry extends AbstractEntity {
 
     @NotNull(message = "Name is required")
     @Size(min = 3, max = 40, message = "name must be longer than 3 and less than 40 characters")
@@ -25,9 +34,11 @@ public class PhoneBookEntry implements Serializable, Cloneable {
     @Pattern(regexp = ".+@.+\\.[a-z]+", message = "Must be valid email")
     private String email;
 
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date birthDate;
-    
-    private Set<PhoneBookGroup> groups = new HashSet<>();
+
+    @ManyToMany
+    private List<PhoneBookGroup> groups = new ArrayList<>();
 
     public PhoneBookEntry(String name, String number, String email) {
         this.name = name;
@@ -71,12 +82,12 @@ public class PhoneBookEntry implements Serializable, Cloneable {
         this.birthDate = birthDate;
     }
 
-    public Set<PhoneBookGroup> getGroups() {
+    public List<PhoneBookGroup> getGroups() {
         return groups;
     }
 
-    public void setGroups(Set<PhoneBookGroup> groups) {
+    public void setGroups(List<PhoneBookGroup> groups) {
         this.groups = groups;
     }
-    
+
 }

@@ -1,16 +1,20 @@
-
 package org.example.backend;
+
+import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author Matti Tahvonen
  */
-public class PhoneBookGroup {
-    
-    static int counter = 0;
-    
+@Entity
+@NamedQueries({
+    @NamedQuery(name = "Group.byName", query = "SELECT e FROM PhoneBookGroup AS e WHERE E.name LIKE :filter")
+})
+public class PhoneBookGroup extends AbstractEntity {
+
     private String name;
-    private int iidee = counter++;
 
     public PhoneBookGroup(String name) {
         this.name = name;
@@ -19,14 +23,6 @@ public class PhoneBookGroup {
     public PhoneBookGroup() {
     }
 
-    public int getIidee() {
-        return iidee;
-    }
-
-    public void setIidee(int iidee) {
-        this.iidee = iidee;
-    }
-    
     public String getName() {
         return name;
     }
