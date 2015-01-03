@@ -3,6 +3,7 @@ package org.example.backend;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
@@ -36,6 +37,9 @@ public class PhoneBookEntry extends AbstractEntity {
 
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date birthDate;
+    
+    @ElementCollection
+    private List<PhoneBookAddress> addresses = new ArrayList<>();
 
     @ManyToMany
     private List<PhoneBookGroup> groups = new ArrayList<>();
@@ -88,6 +92,14 @@ public class PhoneBookEntry extends AbstractEntity {
 
     public void setGroups(List<PhoneBookGroup> groups) {
         this.groups = groups;
+    }
+
+    public List<PhoneBookAddress> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(List<PhoneBookAddress> addressess) {
+        this.addresses = addressess;
     }
 
 }
