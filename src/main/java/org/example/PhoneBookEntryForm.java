@@ -9,7 +9,6 @@ import org.vaadin.maddon.layouts.MVerticalLayout;
 
 import com.vaadin.ui.Component;
 import com.vaadin.ui.DateField;
-import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.PopupDateField;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.TextField;

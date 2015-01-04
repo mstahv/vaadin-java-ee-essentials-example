@@ -2,7 +2,6 @@ package org.example.backend;
 
 import java.io.Serializable;
 import javax.persistence.Embeddable;
-import javax.persistence.UniqueConstraint;
 
 /**
  *
