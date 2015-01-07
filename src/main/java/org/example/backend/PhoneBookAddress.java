@@ -9,17 +9,21 @@ import javax.persistence.Embeddable;
  */
 @Embeddable
 public class PhoneBookAddress implements Serializable {
+    
+    public enum AddressType {
+        Home, Work, Other
+    }
 
-    private String type;
+    private AddressType type;
     private String street;
     private String city;
     private String zip;
 
-    public String getType() {
+    public AddressType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(AddressType type) {
         this.type = type;
     }
 

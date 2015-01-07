@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -38,7 +39,7 @@ public class PhoneBookEntry extends AbstractEntity {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date birthDate;
     
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<PhoneBookAddress> addresses = new ArrayList<>();
 
     @ManyToMany

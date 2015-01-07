@@ -15,7 +15,9 @@ import com.vaadin.ui.TextField;
 import javax.inject.Inject;
 import org.example.backend.PhoneBookAddress;
 import org.example.backend.PhoneBookService;
-import org.vaadin.maddon.fields.InlineEditableCollection;
+import org.vaadin.maddon.fields.EnumSelect;
+import org.vaadin.maddon.fields.AbstractElementCollection;
+import org.vaadin.maddon.fields.ElementCollectionField;
 import org.vaadin.maddon.fields.MultiSelectTable;
 import org.vaadin.maddon.layouts.MHorizontalLayout;
 
@@ -36,13 +38,13 @@ public class PhoneBookEntryForm extends AbstractForm<PhoneBookEntry> {
             .withProperties("name").withColumnHeaderMode(Table.ColumnHeaderMode.HIDDEN);
 
     public static class AddressRow {
-        TextField type = new MTextField().withInputPrompt("type").withWidth("4em");
+        EnumSelect type = new EnumSelect().withWidth("6em");
         TextField street = new MTextField().withInputPrompt("street");
         TextField city = new MTextField().withInputPrompt("city").withWidth("6em");
         TextField zip = new MTextField().withInputPrompt("zip").withWidth("4em");
     }
 
-    InlineEditableCollection<PhoneBookAddress> addresses = new InlineEditableCollection<>(
+    ElementCollectionField<PhoneBookAddress> addresses = new ElementCollectionField<>(
             PhoneBookAddress.class, AddressRow.class).withCaption("Addressess");
 
     @Inject
