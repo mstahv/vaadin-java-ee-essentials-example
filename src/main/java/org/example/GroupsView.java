@@ -8,21 +8,17 @@ import com.vaadin.ui.Button;
 import com.vaadin.ui.CssLayout;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.TextField;
-import java.lang.reflect.InvocationTargetException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.inject.Inject;
-import org.apache.commons.beanutils.BeanUtils;
 import org.example.backend.PhoneBookEntry;
 import org.example.backend.PhoneBookGroup;
 import org.example.backend.PhoneBookService;
-import org.vaadin.maddon.button.MButton;
-import org.vaadin.maddon.fields.MTable;
-import org.vaadin.maddon.fields.MTextField;
-import org.vaadin.maddon.fields.MValueChangeEvent;
-import org.vaadin.maddon.label.Header;
-import org.vaadin.maddon.layouts.MHorizontalLayout;
-import org.vaadin.maddon.layouts.MVerticalLayout;
+import org.vaadin.viritin.button.MButton;
+import org.vaadin.viritin.fields.MTable;
+import org.vaadin.viritin.fields.MTextField;
+import org.vaadin.viritin.fields.MValueChangeEvent;
+import org.vaadin.viritin.label.Header;
+import org.vaadin.viritin.layouts.MHorizontalLayout;
+import org.vaadin.viritin.layouts.MVerticalLayout;
 
 /**
  *
