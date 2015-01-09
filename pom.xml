@@ -10,7 +10,7 @@
     <parent>
         <groupId>org.vaadin</groupId>
         <artifactId>vaadin-java-ee-essentials</artifactId>
-        <version>1.8</version>
+        <version>1.9</version>
     </parent>
 
     <!-- Optional: use Java 8 -->
@@ -21,8 +21,8 @@
     
     <repositories>
         <repository>
-            <id>v4.tahvonen.fi</id>
-            <url>http://v4.tahvonen.fi/maven2</url>
+            <id>viritin</id>
+            <url>http://virit.in/maven2</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>

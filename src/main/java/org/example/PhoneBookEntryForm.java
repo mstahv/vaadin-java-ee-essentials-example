@@ -1,16 +1,16 @@
 package org.example;
 
 import org.example.backend.PhoneBookEntry;
-import org.vaadin.maddon.fields.MTextField;
-import org.vaadin.maddon.form.AbstractForm;
-import org.vaadin.maddon.layouts.MFormLayout;
-import org.vaadin.maddon.layouts.MMarginInfo;
-import org.vaadin.maddon.layouts.MVerticalLayout;
 
 import com.vaadin.ui.Component;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.PopupDateField;
 import com.vaadin.ui.TextField;
+import org.vaadin.viritin.fields.MTextField;
+import org.vaadin.viritin.form.AbstractForm;
+import org.vaadin.viritin.layouts.MFormLayout;
+import org.vaadin.viritin.layouts.MMarginInfo;
+import org.vaadin.viritin.layouts.MVerticalLayout;
 
 /**
  * This class introduces a Form to edit PhoneBookEntry pojos. It is a good habit
