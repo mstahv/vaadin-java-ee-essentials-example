@@ -10,7 +10,7 @@
     <parent>
         <groupId>org.vaadin</groupId>
         <artifactId>vaadin-java-ee-essentials</artifactId>
-        <version>1.9</version>
+        <version>1.12</version>
     </parent>
 
     <!-- Optional: use Java 8 -->
@@ -18,7 +18,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-    
+
     <repositories>
         <repository>
             <id>viritin</id>
